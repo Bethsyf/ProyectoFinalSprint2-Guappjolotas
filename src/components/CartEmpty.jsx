@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import imgCartEmpty from '../assets/images/cart.png';
 import { StyledDivCenter } from '../styleds/StyledDivCenter'
 
 export const StyledImgCartEmpty = styled.img`
@@ -21,7 +20,7 @@ justify-content: center;
 function CartEmpty() {
   return (
     <StyledDivCenter>
-      <StyledImgCartEmpty src={imgCartEmpty}></StyledImgCartEmpty>
+      <StyledImgCartEmpty src='https://i.imgur.com/7kmDYGB.png'></StyledImgCartEmpty>
       <StyledH2CarEmp>No hay productos</StyledH2CarEmp>
     </StyledDivCenter>
   );

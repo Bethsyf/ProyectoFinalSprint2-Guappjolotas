@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Logo from "../assets/images/logo.png";
 import styled from 'styled-components';
 import axios from 'axios';
 import { urlusers } from '../helpers/Url';
@@ -134,7 +133,7 @@ const Login = () => {
     return (
       <div>
         <DivLogin>
-          <Link to={"/"}><ImgLogo src={Logo}></ImgLogo></Link>
+          <Link to={"/"}><ImgLogo src='https://i.imgur.com/55INT93.png'></ImgLogo></Link>
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             <Label>Correo electrónico</Label>
@@ -174,7 +173,7 @@ const Login = () => {
     return (
       <div>
         <DivLogin>
-          <Link to={"/"}><ImgLogo src={Logo}></ImgLogo></Link>
+          <Link to={"/"}><ImgLogo src='https://i.imgur.com/55INT93.png'></ImgLogo></Link>
           <h1>Crear Usuario</h1>
           <form onSubmit={handleSubmit}>
             <Label>Nombre</Label>

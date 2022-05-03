@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import imgAdd from '../assets/images/plus.png'
-import imgSub from '../assets/images/minus.png'
 import styled from 'styled-components';
 
 export const DivBtns = styled.div`
@@ -17,7 +15,7 @@ padding: 16px;
 `
 
 export const BtnContAdd = styled.button`
-  background-image:url(${imgAdd});
+  background-image:url('https://i.imgur.com/hLnizoL.png');
   border-style: none;
   height:40px;
   width:40px;
@@ -27,7 +25,7 @@ export const BtnContAdd = styled.button`
 `
 
 export const BtnContSub = styled.button`
-  background-image:url(${imgSub});
+  background-image:url('https://i.imgur.com/NnlSw7i.png');
   border-style: none;
   height:40px;
   width:40px;

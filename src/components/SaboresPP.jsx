@@ -1,10 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import mole from '../assets/sabores/mole.png'
-import rajas from '../assets/sabores/rajas.png'
-import pina from '../assets/sabores/pina.png'
-import pasas from '../assets/sabores/pasas.png'
-import guayaba from '../assets/sabores/guayaba.png'
 
 export const DivSabores = styled.div`
     display: grid;
@@ -23,21 +18,21 @@ export const ImgSabor = styled.img`
   }
 `
 
-const SaboresPP = () => {
-  
+const Sabores = () => {
+    
   return (
     <div>
       <h2>Sabor</h2>
       <DivSabores>
-       
-        <ImgSabor name="mole" src={mole}></ImgSabor>
-        <ImgSabor name="rajas" src={rajas}></ImgSabor>
-        <ImgSabor name="pina" src={pina}></ImgSabor>
-        <ImgSabor name="pasas" src={pasas}></ImgSabor>
-        <ImgSabor name="guayaba" src={guayaba}></ImgSabor>
+        <ImgSabor name="verde" src='https://i.imgur.com/4JvggCN.png'></ImgSabor>
+        <ImgSabor name="mole" src='https://i.imgur.com/j3G7JKX.png'></ImgSabor>
+        <ImgSabor name="rajas" src='https://i.imgur.com/4dXDMqw.png'></ImgSabor>
+        <ImgSabor name="pina" src='https://i.imgur.com/pVDtedv.png'></ImgSabor>
+        <ImgSabor name="pasas" src='https://i.imgur.com/BEfy9Cx.png'></ImgSabor>
+        <ImgSabor name="guayaba" src='https://i.imgur.com/BXMTB0d.png'></ImgSabor>
       </DivSabores>
     </div>
   );
 }
 
-export default SaboresPP;
+export default Sabores

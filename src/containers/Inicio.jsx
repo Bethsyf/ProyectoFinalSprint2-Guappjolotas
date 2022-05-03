@@ -1,5 +1,4 @@
 import React from 'react';
-import Logo from "../assets/images/logo.png";
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { keyframes } from 'styled-components'

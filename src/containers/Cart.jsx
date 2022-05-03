@@ -47,7 +47,7 @@ const Cart = () => {
         <BtnComprar >
           {getlocalstorage
             ? <H2Btn onClick={() => navigate("/modal")}>Pagar</H2Btn>
-            : <H2Btn onClick={() => navigate("/inicio")}>Ir a comprar</H2Btn>
+            : <H2Btn onClick={() => navigate("/")}>Ir a comprar</H2Btn>
           }
         </BtnComprar>
       </DivBtn>
