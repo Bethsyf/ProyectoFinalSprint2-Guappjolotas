@@ -1,24 +1,26 @@
-import React from 'react';
-import styled from "styled-components"
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import styled from 'styled-components'
 
-export const StyledCarrito = styled.div`
+export const StyledCart = styled.div`
 display:flex;
-width: 24px;
-height: 24px;
+width: 34px;
+height: 34px;
 position:absolute;
 right: 24px;
 top: 44px;
-
 `
 
-export default function BtnCarrito() {
-
-  const irCarrito = () => {
-    navigate("/carrito")
-  }
+const BtnCart = () => {
   const navigate = useNavigate()
-  return (<>
-    <StyledCarrito className="bi bi-cart2" onClick={irCarrito}></StyledCarrito>
-  </>);
+  
+  return (
+    
+    <StyledCart>
+    <img src='https://i.imgur.com/7kmDYGB.png' alt='cart' onClick={() => navigate("/cart")}></img>
+    </StyledCart>
+
+  )
 }
+
+export default BtnCart

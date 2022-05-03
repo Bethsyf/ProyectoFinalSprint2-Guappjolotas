@@ -40,7 +40,7 @@ function Inicio() {
   handleAutoLoad()
   return (
     <DivInicio>
-      <ImgInicio src={Logo} />
+      <ImgInicio src='https://i.imgur.com/55INT93.png' alt='logo-guajolotas' />
     </DivInicio>
   );
 }

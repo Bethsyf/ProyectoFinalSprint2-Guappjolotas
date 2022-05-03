@@ -17,7 +17,7 @@ function BtnVolver() {
   const navigate = useNavigate()
   return (
     <StyledVolver >
-      <img src={imgvolver} onClick={() => navigate("/menu")}></img>
+      <img src={imgvolver} alt='back' onClick={() => navigate("/menu")}></img>
     </StyledVolver>
   );
 }

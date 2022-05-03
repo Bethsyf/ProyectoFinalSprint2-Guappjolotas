@@ -23,46 +23,13 @@ export const ImgSabor = styled.img`
   }
 `
 
-const SaboresPP = (props) => {
-  const producto = props.producto
-  const { sabor } = producto
-  const categoria = props.categoria
-  const changeSabor = () => {
-    producto.producto()
-
-  }
-  //   let saborestodo = {}
-  //   if(categoria==='bebidas'){
-  //      saborestodo = {
-  //       "arroz":{arroz},
-  //       "cafe":{cafe},
-  //       "champurrado":{champurrado},
-  //       "chocolate":{chocolate},
-  //     }
-  // } else{
-  //    saborestodo = {
-  //     "verde":{verde},
-  //     "mole":{mole},
-  //     "rajas":{rajas},
-  //     "pina":{pina},
-  //     "pasas":{pasas},
-  //     "guayaba":{guayaba},
-  //    }
-  // }
-  // console.log(saborestodo.keys)
-
-
+const SaboresPP = () => {
+  
   return (
     <div>
       <h2>Sabor</h2>
       <DivSabores>
-        {/* { saborestodo.map(ele=>(
-          <ImgSabor name={ele[0]} src={ele[0][0]} onClick={changeSabor}></ImgSabor>
-
-        ))
-          
-        } */}
-
+       
         <ImgSabor name="mole" src={mole}></ImgSabor>
         <ImgSabor name="rajas" src={rajas}></ImgSabor>
         <ImgSabor name="pina" src={pina}></ImgSabor>
