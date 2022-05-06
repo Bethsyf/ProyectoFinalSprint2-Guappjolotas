@@ -29,7 +29,7 @@ const DetalleCompra = () => {
    const navigate = useNavigate()
    let getlocalstorage = JSON.parse(localStorage.getItem('Carrito'))
    const params = useParams()
-   const {  id } = params
+   const { id } = params
    let itemSelect = getlocalstorage.find(ele => ele.id == id)
    const [counter, conteo] = useState(itemSelect.cantidad);
    const findInd = getlocalstorage.findIndex(ele => ele.id == id)
