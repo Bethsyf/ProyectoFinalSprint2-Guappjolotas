@@ -6,9 +6,9 @@ import Sabores from '../components/Sabores';
 import Combo from '../components/Combo';
 import { BtnComprar } from '../styled/Styled';
 import { useParams, useNavigate } from 'react-router-dom';
-import { url } from '../helpers/url';
 import axios from 'axios';
 import { Flexrow } from '../styled/Styled';
+import { url } from '../helpers/url';
 
 const Main = () => {
   const [carrito, setCarrito] = useState([]);

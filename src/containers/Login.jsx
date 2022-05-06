@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { urluser } from '../helpers/url';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { urluser } from '../helpers/url';
 
 export const Conta = styled.div`
 flex-direction: column;
