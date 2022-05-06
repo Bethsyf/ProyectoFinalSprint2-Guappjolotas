@@ -1,9 +1,9 @@
 import React from 'react';
-import { BtnComprar } from '../styleds/BtnComprar'
-import BtnVolver from '../components/BtnVolver';
+import { BtnComprar } from '../styled/Styled'
+import BtnBack from '../components/BtnBack';
 import styled from "styled-components"
-import CartEmpty from '../components/CartEmpty';
-import ListCarrito from '../components/ListCarrito';
+import CartVacio from '../components/CartVacio';
+import ListCart from '../components/ListCart';
 import { useNavigate } from 'react-router-dom';
 
 export const StyledH2Carrito = styled.h2`
@@ -37,16 +37,16 @@ const Cart = () => {
   const navigate = useNavigate()
   return (
     <DivContenedor>
-      <BtnVolver />
+      <BtnBack />
       <StyledH2Carrito>Carrito</StyledH2Carrito>
       {getlocalstorage
-        ? <ListCarrito />
-        : <CartEmpty />
+        ? <ListCart />
+        : <CartVacio />
       }
       <DivBtn>
         <BtnComprar >
           {getlocalstorage
-            ? <H2Btn onClick={() => navigate("/modal")}>Pagar</H2Btn>
+            ? <H2Btn onClick={() => navigate("/cart")}>Pagar</H2Btn>
             : <H2Btn onClick={() => navigate("/")}>Ir a comprar</H2Btn>
           }
         </BtnComprar>

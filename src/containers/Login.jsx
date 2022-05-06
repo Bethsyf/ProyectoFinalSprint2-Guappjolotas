@@ -1,30 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
-import { urlusers } from '../helpers/Url';
+import { urluser } from '../helpers/url';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-export const ImgInicio = styled.img`
-width: 50%;
-height: fit-content;
-`
-
-export const DivLogin = styled.div`
-display:flex;
+export const Conta = styled.div`
 flex-direction: column;
-align-items:center;
-margin-top: 32px;
+margin-top: 30px;
 padding: 25px;
 `
 
-export const ImgLogo = styled.img`
+export const Logo = styled.img`
 width: 80px;
 height: 80px;
 min-width: 80px;
 `
 
-export const Inputs = styled.input`
+export const Input1 = styled.input`
 background-color: white;
 height: 30px;
 width: 100%;
@@ -38,7 +31,7 @@ margin: 5px auto;
 `
 
 export const Button = styled.button`
-background-color: var(--Primary-color);
+background-color: #FA4A0C;
 border-style: none;
 width: 100px;
 height: 30px;
@@ -46,21 +39,25 @@ float: right;
 color: white;
 `
 
-export const Pcrear = styled.button`
-color:var(--Primary-color);
+export const Crear = styled.button`
+color: #FA4A0C;
 background-color: white;
 border-style: none;
 `
 
-export const Palerta = styled.p`
-background-color:var(--Primary-color);
+export const Alerta = styled.p`
+color: #FA4A0C;
+`
+
+export const ContBtn = styled.div`
+width: 50%;
 `
 
 const Login = () => {
   const navigate = useNavigate()
-  const [loginOn, setloginOn] = useState(true)
-  const [alerta, setAlerta] = useState()
-  const [usuarios, setUsuario] = useState({
+  const [loginOn, setLoginOn] = useState(true)
+  const [alert, setAlert] = useState()
+  const [usuario, setUsuario] = useState({
     name: '',
     email: '',
     password: '',
@@ -70,7 +67,6 @@ const Login = () => {
   const [ingreso, setIngreso] = useState({
     email: '',
     password: '',
-
   });
 
   useEffect(() => {
@@ -85,7 +81,7 @@ const Login = () => {
     }
     else {
       setUsuario({
-        ...usuarios,
+        ...usuario,
         [target.name]: target.value
       })
     }
@@ -94,17 +90,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (loginOn) {
-      setAlerta('verificando...')
+      setAlert('verificando...')
       leerUsuario(ingreso)
       console.log('leyendo usuario')
     } else {
       console.log('creando usuario')
-      crearUsuario(usuarios)
+      crearUsuario(usuario)
     }
   }
 
   const crearUsuario = (usuarios) => {
-    axios.post(urlusers, usuarios)
+    axios.post(urluser, usuarios)
       .then(response => {
         console.log('Usuario creado')
         navigate('/login')
@@ -117,13 +113,13 @@ const Login = () => {
   }
 
   const leerUsuario = async (ingreso) => {
-    axios.get(urlusers)
+    axios.get(urluser)
       .then(response => {
         const existeRegistro = response.data.some(ele => (ele.email === ingreso.email) && (ele.password === ingreso.password))
         if (existeRegistro) {
-          localStorage.setItem('Userguajalota', JSON.stringify(ingreso.email))
-          navigate('/menu')
-        } else { setAlerta('email o contraseña invalidos') }
+          localStorage.setItem('UserApp', JSON.stringify(ingreso.email))
+          navigate('/home')
+        } else { setAlert('email o contraseña invalidos') }
       })
       .catch(error => {
         console.log(error);
@@ -132,12 +128,12 @@ const Login = () => {
   if (loginOn) {
     return (
       <div>
-        <DivLogin>
-          <Link to={"/"}><ImgLogo src='https://i.imgur.com/55INT93.png'></ImgLogo></Link>
+        <Conta>
+          <Link to={"/"}><Logo src='https://i.imgur.com/55INT93.png'></Logo></Link>
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
             <Label>Correo electrónico</Label>
-            <Inputs
+            <Input1
               type="text"
               className="form-control mt-2"
               name="email"
@@ -147,7 +143,7 @@ const Login = () => {
               onChange={handleInputChange}
             />
             <Label>Contraseña</Label>
-            <Inputs
+            <Input1
               className="form-control mt-2"
               autoComplete="off"
               name="password"
@@ -155,29 +151,29 @@ const Login = () => {
               type="password"
               required
               onChange={handleInputChange}
-            ></Inputs>
-            <Palerta>{alerta}</Palerta>
+            />
+            <Alerta>{alert}</Alerta>
             <br></br>
-            <div >
+            <ContBtn >
               <Button
                 value="Save"
                 type="submit"
               > Iniciar</Button>
-              <Pcrear onClick={() => setloginOn(false)}>Crear Usuario</Pcrear>
-            </div>
+              <Crear onClick={() => setLoginOn(false)}>Crear Usuario</Crear>
+            </ContBtn>
           </form>
-        </DivLogin>
+        </Conta>
       </div>
     )
   } else {
     return (
       <div>
-        <DivLogin>
-          <Link to={"/"}><ImgLogo src='https://i.imgur.com/55INT93.png'></ImgLogo></Link>
+        <Conta>
+          <Link to={"/"}><Logo src='https://i.imgur.com/55INT93.png'></Logo></Link>
           <h1>Crear Usuario</h1>
           <form onSubmit={handleSubmit}>
             <Label>Nombre</Label>
-            <Inputs
+            <Input1
               id="fileSelector"
               type="text"
               className="form-control "
@@ -187,7 +183,7 @@ const Login = () => {
               onChange={handleInputChange}
             />
             <Label>Correo electrónico</Label>
-            <Inputs
+            <Input1
               type="text"
               className="form-control mt-2"
               name="email"
@@ -197,7 +193,7 @@ const Login = () => {
               onChange={handleInputChange}
             />
             <Label>Contraseña</Label>
-            <Inputs
+            <Input1
               className="form-control mt-2"
               autoComplete="off"
               name="password"
@@ -205,17 +201,8 @@ const Login = () => {
               type="password"
               required
               onChange={handleInputChange}
-            ></Inputs>
-            <Label>Imagen</Label>
-            <Inputs
-              className="form-control mt-2"
-              autoComplete="off"
-              name="imagen"
-              placeholder="url de tu imagen de usuario"
-              required
-              onChange={handleInputChange}
-            ></Inputs>
-            <br></br>
+            />
+            
             <br></br>
             <div >
               <Button
@@ -224,10 +211,11 @@ const Login = () => {
               > Guardar</Button>
             </div>
           </form>
-        </DivLogin>
+        </Conta>
       </div>
     )
   }
 }
+
 
 export default Login;   

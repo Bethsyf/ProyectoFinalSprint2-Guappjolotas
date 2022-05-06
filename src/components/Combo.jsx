@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
-import { url } from '../helpers/Url';
+import { url } from '../helpers/url';
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -61,23 +61,23 @@ export const Pdes = styled.p`
 
 const Descrip = ({ descripcion }) => <Pdes>{descripcion}</Pdes>
 const TitleLet = ({ descripcion }) => <H2Titulo>{descripcion}</H2Titulo>
-const Combo = ({ categoria, canasta, anaCarrito }) => {
+const Combo = ({ categoria, canasta, carritoT }) => {
     const [combo, setCombo] = useState([]);
 
     let captiondescrip = ''
     let titulo = ''
-    let cate = ''
+    let categ = ''
     if (categoria === 'bebidas') {
         titulo = 'Guajolocombo'
         captiondescrip = 'Selecciona la torta que más te guste y disfruta de tu desayuno.'
-        cate = 'guajolota'
+        categ = 'guajolota'
     } else {
         titulo = 'Bebidas'
         captiondescrip = 'Selecciona la bebida que más te guste y disfruta de tu desayuno.'
-        cate = 'bebidas'
+        categ = 'bebidas'
     }
     const getData = useCallback(() => {
-        axios.get(url + `${cate}/`)
+        axios.get(url + `${categ}/`)
             .then(res => {
                 setCombo(res.data)
             })
@@ -96,7 +96,7 @@ const Combo = ({ categoria, canasta, anaCarrito }) => {
     }
 
     const handleChanged = ({ target }) => {
-        anaCarrito([
+        carritoT([
             ...canasta,
             {
                 id: Number(target.value),

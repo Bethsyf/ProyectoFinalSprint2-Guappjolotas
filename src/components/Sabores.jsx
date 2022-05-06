@@ -24,7 +24,6 @@ const Sabores = () => {
     <div>
       <h2>Sabor</h2>
       <DivSabores>
-        <ImgSabor name="verde" src='https://i.imgur.com/4JvggCN.png'></ImgSabor>
         <ImgSabor name="mole" src='https://i.imgur.com/j3G7JKX.png'></ImgSabor>
         <ImgSabor name="rajas" src='https://i.imgur.com/4dXDMqw.png'></ImgSabor>
         <ImgSabor name="pina" src='https://i.imgur.com/pVDtedv.png'></ImgSabor>

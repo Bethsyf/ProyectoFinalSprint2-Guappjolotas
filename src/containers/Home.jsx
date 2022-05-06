@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
-import { url } from '../helpers/Url';
-import { Flexrow, Pprodut, Search, SearchInput } from '../styleds/Styles';
+import React, { Component } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Bebidas, Guajolotas, Tamales } from '../components/ListaProductos';
-import BtnCarrito from '../components/BtnCarrito';
+import Bebidas from '../components/Bebidas';
+import BtnCart from '../components/BtnCart';
+import Guajolotas from '../components/Guajolota';
+import Shearch from '../components/Shearch';
+import Tamales from '../components/Tamales';
+import { url } from '../helpers/url';
+import { Flexrow, Product } from '../styled/Styled';
 
-export default class Header extends Component {
+
+export default class Home extends Component {
   constructor() {
     super()
     this.state = {
-      mostrarGuajolota: true,
-      mostrarBebidas: false,
-      mostrarTamal: false,
+      showGuajolota: true,
+      showBebidas: false,
+      showTamal: false,
       change: false,
       producto: '',
       productos: []
@@ -38,44 +42,38 @@ export default class Header extends Component {
 
   guajolotas = () => {
     this.setState({
-      mostrarGuajolota: true,
-      mostrarBebidas: false,
+      showGuajolota: true,
+      showBebidas: false,
       change: false,
-      mostrarTamal: false
+      showTamal: false
     })
   }
   bebidas = () => {
     this.setState({
-      mostrarGuajolota: false,
-      mostrarBebidas: true,
+      showGuajolota: false,
+      showBebidas: true,
       change: false,
-      mostrarTamal: false
+      showTamal: false
     })
   }
   tamales = () => {
     this.setState({
-      mostrarGuajolota: false,
-      mostrarBebidas: false,
+      showGuajolota: false,
+      showBebidas: false,
       change: false,
-      mostrarTamal: true
+      showTamal: true
     })
   }
   changed = () => {
     this.setState({
-      mostrarGuajolota: false,
-      mostrarBebidas: false,
-      mostrarTamal: false,
+      showGuajolota: false,
+      showBebidas: false,
+      showTamal: false,
       change: true
     })
   }
 
   render() {
-
-    const handleinputChange = ({ target }) => {
-      this.setState({
-        [target.name]: target.value
-      })
-    }
 
     const productosearch = this.state.producto
     const porductoUnidad = this.state.productos
@@ -93,28 +91,24 @@ export default class Header extends Component {
           <img className='image'
             src='https://i.imgur.com/55INT93.png' alt="Logo" />
         </div>
-        <BtnCarrito />
+        <BtnCart />
       </Flexrow>
       <h1>Nada como una guajolotas para empezar el día</h1>
-      <Search>
-        <i className="bi bi-search"></i>
-        <SearchInput className='input' type="text" value={this.state.producto} onChange={handleinputChange} onFocus={this.changed} name='producto'
-          placeholder='Sabor de guajolota, bebida...' autocomplete="off" />
-      </Search>
+      <Shearch />
       <Flexrow className='iconosCabecera'>
-        <Pprodut className={'Pproduct'} onClick={this.guajolotas}>Guajolotas</Pprodut>
-        <Pprodut className={'Pproduct'} onClick={this.bebidas}>Bebidas</Pprodut>
-        <Pprodut onClick={this.tamales} className={'Pproduct'}>Tamales</Pprodut>
+        <Product className={'Product'} onClick={this.guajolotas}>Guajolotas</Product>
+        <Product className={'Product'} onClick={this.bebidas}>Bebidas</Product>
+        <Product className={'Product'} onClick={this.tamales} >Tamales</Product>
       </Flexrow>
-      {this.state.mostrarGuajolota && <Guajolotas />}
-      {this.state.mostrarBebidas && <Bebidas />}
-      {this.state.mostrarTamal && <Tamales />}
+      {this.state.showGuajolota && <Guajolotas />}
+      {this.state.showBebidas && <Bebidas />}
+      {this.state.showTamal && <Tamales />}
       {this.state.change && <div>
         {filtrado.map(ele => (
           <div key={ele.id} className='ListaProductos '>
-            <Flexrow className='itemListado ' key={ele.id} onClick={() => useNavigate(`/principal/${ele.categoria}/${ele.id}`)} >
+            <Flexrow className='itemListado ' key={ele.id} onClick={() => useNavigate(`/main/${ele.categoria}/${ele.id}`)} >
               <div className='contenedorImagen'>
-                <img src={ele.imagen} alt={ele.nombre} />
+                <img className='imgprod' src={ele.imagen} alt={ele.nombre} />
               </div>
               <div className='descProducto'>
                 <p className='descProducto'>

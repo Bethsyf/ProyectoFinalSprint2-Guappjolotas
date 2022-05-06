@@ -13,8 +13,7 @@ export const Search = styled.div`
     width: 80%;
     height: 10%;
     margin:auto;
-    display:flex;
-    gap:2%;
+    display:flex;    
 `
 
 export const SearchInput = styled.input`
@@ -27,6 +26,25 @@ export const SearchInput = styled.input`
     }
 `
 
-export const Pprodut = styled.p`
+export const Product = styled.p`
     font-size: 1rem;
+`
+
+export const BtnComprar = styled.button`
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    width: 312px;
+    height: 50px;
+    padding: 24px;
+    background-color:#FA4A0C;
+    border-radius: 40px;
+    border-style:none;
+    color: white;
+    text-align:center;
+    justify-content: center;
+    margin: 10px;
+    &:hover {
+        opacity: 0.5;
+  }
 `

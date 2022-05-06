@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ align-items: center;
 margin: 0 10%;
 `
 
-export const StyledimgListCarr = styled.img`
+export const StyledimgListCart = styled.img`
 width: 56px;
 height: 56px;
 `
@@ -53,7 +53,7 @@ align-items:center;
 border-radius: 20px;
 padding: 16px;
 background-color:white;
-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
+
 `
 
 export const StyledTotalh3 = styled.h4`
@@ -65,7 +65,7 @@ color: #FA4A0C;
 background-color:inherit;
 `
 
-function ListCarrito() { 
+function ListCart() { 
   const navigate = useNavigate()
 
   let getlocalstorage = JSON.parse(localStorage.getItem('Carrito'))
@@ -74,16 +74,16 @@ function ListCarrito() {
 
   console.log(valor)
   const handleModal = (categoria, id) => {
-    navigate(`/modal/${categoria}/${id}`)
+    navigate(`/compra/${categoria}/${id}`)
   }
 
   return (
-    <>
+    
       <StyledLista>
         {
           getlocalstorage.map(ele => (
             <StyledLi key={ele.id} onClick={() => handleModal(ele.categoria, ele.id)}>
-              <StyledimgListCarr src={ele.imagen}></StyledimgListCarr>
+              <StyledimgListCart src={ele.imagen}></StyledimgListCart>
               <Styleddescripcion>
                 <h6>{ele.nombre}</h6>
                 <h6>x{ele.cantidad}</h6>
@@ -97,8 +97,8 @@ function ListCarrito() {
           <StyledTotalPrecioh3>${valor}MXN</StyledTotalPrecioh3>
         </StyledTotal>
       </StyledLista>
-    </>
+    
   );
 }
 
-export default ListCarrito;
+export default ListCart;

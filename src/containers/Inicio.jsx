@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { keyframes } from 'styled-components'
 
-export const AniInicio = keyframes` 
+export const AniLogo = keyframes` 
  0% { height: 400px; width: 400px; opacity: 1 }
  30% { height: 405px; width: 405px; opacity: 0.7; }
  100% { height: 100px; width: 100px; opacity: 0.4; }
@@ -12,31 +12,31 @@ export const AniInicio = keyframes`
 export const DivInicio = styled.div`
 display:flex;
 flex-direction: column;
-background-color: inherit;
 justify-content: center;
 align-items: center;
 width: 100vw;
 height: 100vh;
-animation-name: ${AniInicio};
+background-color: inherit;
+animation-name: ${AniLogo};
 animation-duration: 3s;
 `
 
 export const ImgInicio = styled.img`
 width: 50%;
-height: fit-content;
+
 `
 
 function Inicio() {
   const navigate = useNavigate()
-  const handleAutoLoad = () => {
-    const leerUser = localStorage.getItem('Userguajalota')
+  const handleLoadAni = () => {
+    const leerUsuario = localStorage.getItem('UserApp')
     function IraLogin() {
-      if (leerUser) { navigate("/menu") } else { navigate('/login') }
+      if (leerUsuario) { navigate("/home") } else { navigate('/login') }
     }
     setTimeout(IraLogin, 2000)
   }
 
-  handleAutoLoad()
+  handleLoadAni()
   return (
     <DivInicio>
       <ImgInicio src='https://i.imgur.com/55INT93.png' alt='logo-guajolotas' />

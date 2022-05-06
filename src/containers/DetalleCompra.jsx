@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Contador from '../components/Contador.jsx'
-import { BtnComprar } from "../styleds/BtnComprar";
+import { BtnComprar } from "../styled/Styled.js";
 import styled from "styled-components";
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -25,11 +25,11 @@ text-align:center;
 margin: 10px;
 `
 
-const ModalCarrito = () => {
+const DetalleCompra = () => {
    const navigate = useNavigate()
    let getlocalstorage = JSON.parse(localStorage.getItem('Carrito'))
    const params = useParams()
-   const { id } = params
+   const {  id } = params
    let itemSelect = getlocalstorage.find(ele => ele.id == id)
    const [counter, conteo] = useState(itemSelect.cantidad);
    const findInd = getlocalstorage.findIndex(ele => ele.id == id)
@@ -44,10 +44,10 @@ const ModalCarrito = () => {
             <h3>{itemSelect.nombre}</h3>
             <H3Modal>${itemSelect.precio * counter} MXN</H3Modal>
             <Contador conteo={conteo} />
-            <h3><BtnComprar onClick={() => { handleActualize(); navigate("/carrito") }}>Actualizar</BtnComprar></h3>
-            <H3Modal onClick={() => navigate("/carrito")}>Cerrar</H3Modal>
+            <h3><BtnComprar onClick={() => { handleActualize(); navigate("/cart") }}>Actualizar</BtnComprar></h3>
+            <H3Modal onClick={() => navigate("/cart")}>Cerrar</H3Modal>
          </DivCol>
       </>
    )
 }
-export default ModalCarrito;
+export default DetalleCompra;

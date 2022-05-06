@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import BtnBack from './BtnBack'
 
 export const StyledCart = styled.div`
 display:flex;
@@ -16,8 +17,8 @@ const BtnCart = () => {
   
   return (
     
-    <StyledCart>
-    <img src='https://i.imgur.com/7kmDYGB.png' alt='cart' onClick={() => navigate("/cart")}></img>
+    <StyledCart>     
+    <img src='https://i.imgur.com/7kmDYGB.png' alt='cart' onClick={() => navigate("/cartvacio")}></img>
     </StyledCart>
 
   )

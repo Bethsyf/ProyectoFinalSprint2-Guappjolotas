@@ -1,8 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import styled from "styled-components";
 import Contador from "./Contador";
+import styled from "styled-components";
 
 export const DivCol = styled.div`
 display: flex;
@@ -13,8 +12,8 @@ top: 0px;
 `
 
 export const ImgModal = styled.img`
-width: 200px;
-height: 200px;
+width: 100px;
+height: 100px;
 `
 
 export const H3Modal = styled.h3`
@@ -23,7 +22,7 @@ export const H3Modal = styled.h3`
    margin: 10px;
 `
 
-const SliderProducto = (props) => {
+const Productos = (props) => {
     let producto = props.producto
     let num = props.numero
     const { imagen, nombre, precio } = producto
@@ -40,4 +39,4 @@ const SliderProducto = (props) => {
     )
 }
 
-export default SliderProducto;
+export default Productos

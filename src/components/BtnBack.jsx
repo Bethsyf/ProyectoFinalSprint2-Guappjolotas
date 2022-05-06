@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
 
-export const StyledVolver = styled.div`
+export const StyledBack = styled.div`
 display:flex;
 width: 24px;
 height: 24px;
@@ -12,13 +12,13 @@ top: 44px;
 border-radius:12px;
 `
 
-function BtnVolver() {
+function BtnBack() {
   const navigate = useNavigate()
   return (
-    <StyledVolver >
-      <img src='https://i.imgur.com/glAhAKG.png' alt='back' onClick={() => navigate("/menu")}></img>
-    </StyledVolver>
+    <StyledBack >
+      <img src='https://i.imgur.com/glAhAKG.png' alt='back' onClick={() => navigate("/home")}></img>
+    </StyledBack>
   );
 }
 
-export default BtnVolver;
+export default BtnBack;

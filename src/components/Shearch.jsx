@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Search, SearchInput } from '../styleds/Styles';
+import React, { useState } from 'react'
+import { Search, SearchInput } from '../styled/Styled'
 
-export const FuncionSearch = () => {
-    const [buscar, setBuscar] = useState({
+const Shearch = () => {
+      const [buscar, setBuscar] = useState({
         producto: ''
     })
 
@@ -14,6 +14,7 @@ export const FuncionSearch = () => {
         console.log(buscar);
     }
 
+    
     return (
         <Search>
             <i className="bi bi-search"></i>
@@ -22,3 +23,8 @@ export const FuncionSearch = () => {
         </Search>
     )
 }
+  
+
+export default Shearch
+
+
